@@ -1,8 +1,13 @@
 <?php
-	class rex_hyphenator {
+	class hyphenator {
 		private static $hyphenators = array();
 				
-		public static function hyphenate($language, $string) {
+		public static function hyphenate($string, $language = '') {
+			
+			if ($language == '') {
+				$language = rex_clang::getCurrent()->getCode();
+			}
+			
 			return self::getHyphenator($language)->hyphenate($string);
 		}
 		
