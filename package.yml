@@ -1,4 +1,4 @@
-package: rex_hyphenator
+package: hyphenator
 version: '1.0.0'
 author: Friends Of REDAXO
-supportpage: github.com/FriendsOfREDAXO/rex_hyphenator
+supportpage: github.com/FriendsOfREDAXO/hyphenator
