@@ -3,12 +3,26 @@
 		private static $hyphenators = array();
 				
 		public static function hyphenate($string, $language = '') {
+			//Start - save html-attributes
+				preg_match_all('/(\S+)=["\']?((?:.(?!["\']?\s+(?:\S+)=|[>"\']))+.)["\']?/', $string, $matches, PREG_SET_ORDER);
+				foreach ($matches as $index => $match) {
+					$string = preg_replace('|'.$match[0].'|', '###'.$index.'###', $string, 1);
+				}
+			//End - save html-attributes
 			
 			if ($language == '') {
 				$language = rex_clang::getCurrent()->getCode();
 			}
 			
-			return self::getHyphenator($language)->hyphenate($string);
+			$string = self::getHyphenator($language)->hyphenate($string);
+			
+			//Start - restore html-attributes
+				foreach ($matches as $index => $match) {
+					$string = preg_replace('|###'.$index.'###|', $match[0], $string, 1);
+				}
+			//End - restore html-attributes
+			
+			return $string;
 		}
 		
 		private static function getHyphenator($language) {
