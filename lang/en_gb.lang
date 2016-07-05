@@ -1,0 +1,17 @@
+hyphenator_title = Hyphenator
+
+hyphenator_config = Configuration
+hyphenator_config_hyphen = Hyphen-Character
+hyphenator_config_hyphen_description = This character shall be used as Hyphen-Character. This defaults to '&shy;'.
+hyphenator_config_leftMin = Min. Left
+hyphenator_config_leftMin_description = How many characters have to be left unhyphenated to the left of the word. This has to be an integer value and defaults to 2.
+hyphenator_config_rightMin = Min. Right
+hyphenator_config_rightMin_description = How many characters have to be left unhyphenated to the right of the word. This has to be an integer value and defaults to 2.
+hyphenator_config_wordMin = Min. Wordlength
+hyphenator_config_wordMin_description = Words under the given length will not be hyphenated altogether. It makes sense to set option to a higher value than the sum of rightMin and leftMin. This defaults to 6.
+
+hyphenator_config_action_save = Save settings
+hyphenator_config_saved = Settings successfully saved!
+
+perm_general_hyphenator[] = Permissions for the Hyphenator-Addon
+perm_general_hyphenator[config] = Permissions for the Configurationpage of the Hyphenator-Addon
