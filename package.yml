@@ -1,4 +1,12 @@
 package: hyphenator
-version: '1.0.1'
+version: '1.1.0'
 author: Friends Of REDAXO
 supportpage: github.com/FriendsOfREDAXO/hyphenator
+
+page:
+    title: 'translate:title'
+    perm: hyphenator[]
+    pjax: true
+    icon: rex-icon fa-file-text-o
+    subpages:
+        config: { title: 'translate:config', perm: hyphenator[config] }
