@@ -20,7 +20,7 @@
 	//Start - hyphen
 		$n = [];
 		$n['label'] = '<label for="hyphenator-config-hyphen">'.$this->i18n('config_hyphen').'</label>';
-		$n['field'] = '<input type="text" id="hyphenator-config-hyphen" name="config[hyphen]" value="'.$this->getConfig('hyphen').'">';
+		$n['field'] = '<input type="text" id="hyphenator-config-hyphen" name="config[hyphen]" value="'.htmlspecialchars($this->getConfig('hyphen')).'">';
 		$n['note'] = $this->i18n('config_hyphen_description');
 		$formElements[] = $n;
 	//End - hyphen
