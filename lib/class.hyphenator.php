@@ -23,6 +23,8 @@
 				}
 			//End - restore html-attributes
 			
+			
+			
 			return $string;
 		}
 		
@@ -37,6 +39,12 @@
 					$o->setHyphen($addon->getConfig('hyphen'));
 				} else {
 					$o->setHyphen('&shy;');
+				}
+				
+				//Bugfix for safari
+				//see: https://blog.decaf.de/2016/03/04/705665289569099777/
+				if (stripos($_SERVER ['HTTP_USER_AGENT'], 'safari') !== false && stripos($_SERVER ['HTTP_USER_AGENT'], 'chrome') == false && $o->getHyphen() == '&shy;') {
+					$o->setHyphen('<i></i>&shy;');
 				}
 				
 				if (!empty($addon->getConfig('leftMin'))) {
