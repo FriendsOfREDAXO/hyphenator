@@ -3,8 +3,8 @@
 		private static $hyphenators = array();
 				
 		public static function hyphenate($string, $language = '') {
-			//Start - save html-attributes
-				preg_match_all('/(\S+)=["\']((?:.(?!["\']?\s+(?:\S+)=|[>"\']))+.)["\']/', $string, $matches, PREG_SET_ORDER);
+			//Start - save html-tags
+				preg_match_all('/<[^<]*>/', $string, $matches, PREG_SET_ORDER);
 				foreach ($matches as $index => $match) {
 					$match[0] = str_replace(['?'], ['\?'], $match[0]);
 					$string = preg_replace('|'.$match[0].'|', '###'.$index.'###', $string, 1);
