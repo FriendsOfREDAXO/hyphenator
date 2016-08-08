@@ -30,8 +30,7 @@ $textile = rex_markitup::parseOutput('textile', 'REX_VALUE[id=1 output="html"]')
 echo hyphenator::hyphenate($textile);
 ```
 
-## Probleme
+## Anmerkungen
 
 * WebKit (Safari, Opera) hat Probleme mit `&shy;` in manchen WOFF-Webfonts. Es tauchen dann an der Stelle des Umbruchs eigenartige Zeichen auf (siehe [Bugtracker-Issue](https://bugs.webkit.org/show_bug.cgi?id=156167)).  
-__Workaround: `<i></i>&shy;` als Trennzeichen verwenden!__
-
+Als Workaround kann `<i></i>&shy;` als Trennzeichen verwendet werden, was das Addon in der Standardkonfiguration bereits eigenständig übernimmt.
