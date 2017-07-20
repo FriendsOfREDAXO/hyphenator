@@ -6,7 +6,7 @@
 			//Start - save html-tags
 				preg_match_all('/<[^<]*>/', $string, $matches, PREG_SET_ORDER);
 				foreach ($matches as $index => $match) {
-					$match[0] = str_replace(['?'], ['\?'], $match[0]);
+					$match[0] = str_replace(['?', '+', '@', '|'], ['\?', '\+', '\@', '\|'], $match[0]);
 					$string = preg_replace('|'.$match[0].'|', '###'.$index.'###', $string, 1);
 				}
 			//End - save html-attributes
