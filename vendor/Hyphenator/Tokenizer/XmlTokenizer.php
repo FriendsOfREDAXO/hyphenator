@@ -46,16 +46,10 @@ namespace Org\Heigl\Hyphenator\Tokenizer;
  * @link       http://github.com/heiglandreas/Hyphenator
  * @since      04.11.2011
  */
-class WhitespaceTokenizer implements Tokenizer
+class XmlTokenizer implements Tokenizer
 {
-    protected $whitespaces = array(
-      '\s',           // white space
-      "\xE2\x80\xAF", // non-breaking thin white space
-      "\xC2\xA0",     // non-breaking space
-    );
-
     /**
-     * Split the given input into tokens using whitespace as splitter
+     * Split the given input into tokens using Html-Elements as splitter
      *
      * The input can be a string or a tokenRegistry. If the input is a
      * TokenRegistry, each item will be tokenized.
@@ -106,11 +100,14 @@ class WhitespaceTokenizer implements Tokenizer
     protected function _tokenize($input)
     {
         $tokens = array();
-        $splits = preg_split("/([".implode("", $this->whitespaces)."]+)/u", $input, -1, PREG_SPLIT_DELIM_CAPTURE);
+        $splits = preg_split("/(<\/?[^>]+\/?>)/u", $input, -1, PREG_SPLIT_DELIM_CAPTURE);
 
         foreach ($splits as $split) {
-            if (preg_match("/^[".implode("", $this->whitespaces)."]+$/um", $split)) {
-                $tokens[] = new WhitespaceToken($split);
+            if (! $split) {
+                continue;
+            }
+            if (0 === mb_strpos($split, '<')) {
+                $tokens[] = new NonWordToken($split);
                 continue;
             }
             $tokens[] = new WordToken($split);
