@@ -10,3 +10,6 @@ page:
     icon: rex-icon fa-file-text-o
     subpages:
         config: { title: 'translate:config', perm: hyphenator[config] }
+        
+requires:
+    redaxo: '>=5.1.0'
