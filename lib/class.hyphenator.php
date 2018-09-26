@@ -7,7 +7,7 @@
 				preg_match_all('/<[^<]*>/', $string, $matches, PREG_SET_ORDER);
 				foreach ($matches as $index => $match) {
 					$match[0] = str_replace(['?', '+', '@', '|'], ['\?', '\+', '\@', '\|'], $match[0]);
-					$string = preg_replace('|'.$match[0].'|', '###'.$index.'###', $string, 1);
+					$string = preg_replace('|'.preg_quote($match[0],'|').'|', '###'.$index.'###', $string, 1);
 				}
 			//End - save html-attributes
 			
@@ -43,9 +43,9 @@
 				
 				//Bugfix for safari
 				//see: https://blog.decaf.de/2016/03/04/705665289569099777/
-				if (stripos($_SERVER ['HTTP_USER_AGENT'], 'safari') !== false && stripos($_SERVER ['HTTP_USER_AGENT'], 'chrome') == false && $o->getHyphen() == '&shy;') {
-					$o->setHyphen('<i></i>&shy;');
-				}
+				//if (stripos($_SERVER ['HTTP_USER_AGENT'], 'safari') !== false && stripos($_SERVER ['HTTP_USER_AGENT'], 'chrome') == false && $o->getHyphen() == '&shy;') {
+				//	$o->setHyphen('<i></i>&shy;');
+				//}
 				
 				if (!empty($addon->getConfig('leftMin'))) {
 					$o->setLeftMin($addon->getConfig('leftMin'));
