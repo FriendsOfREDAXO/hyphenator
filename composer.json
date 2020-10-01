@@ -1,0 +1,5 @@
+{
+    "require": {
+        "org_heigl/hyphenator": "^2.6"
+    }
+}

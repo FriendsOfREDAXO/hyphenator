@@ -1,0 +1,13 @@
+phpunit.xml
+.settings/*
+build
+.gitconfig
+.project
+.buildpath
+build.number
+tmp/
+.phpunit.result.cache
+composer.lock
+phpcs
+phpcs.asc
+vendor/
