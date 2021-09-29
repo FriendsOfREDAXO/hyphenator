@@ -2,13 +2,13 @@ hyphenator_title = Hyphenator
 
 hyphenator_config = Konfiguration
 hyphenator_config_hyphen = Hyphen character
-hyphenator_config_hyphen_description = Denna tecken kommer att användas som hyphen character. Standardvärdet är '& shy;'.
+hyphenator_config_hyphen_description = Denna tecken kommer att användas som hyphen character. Standardvärdet är <code>&shy;</code>.
 hyphenator_config_leftMin = Min. vänster
-hyphenator_config_leftMin_description = Hur många tecken kommer att lämnas oombrytas till vänster om ordet. Detta måste vara ett heltal och standardvärden till 2.
+hyphenator_config_leftMin_description = Hur många tecken kommer att lämnas oombrytas till vänster om ordet. Detta måste vara ett heltal och standardvärden till <code>2</code>.
 hyphenator_config_rightMin = Min. höger
-hyphenator_config_rightMin_description = Hur många tecken kommer att lämnas oombrytas till höger om ordet. Detta måste vara ett heltal och standardvärden till 2.
+hyphenator_config_rightMin_description = Hur många tecken kommer att lämnas oombrytas till höger om ordet. Detta måste vara ett heltal och standardvärden till <code>2</code>.
 hyphenator_config_wordMin = Min. ordlängd
-hyphenator_config_wordMin_description = Ord under den angivna längden kommer inte att ombrytas alls. Det är bra att ställa in det här alternativet till ett högre värde än summan av höger och vänster min. Detta är vanligtvis 6.
+hyphenator_config_wordMin_description = Ord under den angivna längden kommer inte att ombrytas alls. Det är bra att ställa in det här alternativet till ett högre värde än summan av höger och vänster min. Detta är vanligtvis <code>6</code>.
 
 hyphenator_config_action_save = Spara inställningarna
 hyphenator_config_saved = Inställningarna har sparats!

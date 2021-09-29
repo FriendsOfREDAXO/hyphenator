@@ -2,13 +2,13 @@ hyphenator_title = Hyphenator
 
 hyphenator_config = Configuración
 hyphenator_config_hyphen = Carácter de guion
-hyphenator_config_hyphen_description = Este carácter se usará como un carácter de guion. Esto predeterminado es'&shy;'.
+hyphenator_config_hyphen_description = Este carácter se usará como un carácter de guion. Esto predeterminado es <code>&shy;</code>.
 hyphenator_config_leftMin = Min. izquierda
-hyphenator_config_leftMin_description = Cuántos caracteres quedarán sin cifrar a la izquierda de la palabra. Esto tiene que ser un valor entero y por defecto es 2.
+hyphenator_config_leftMin_description = Cuántos caracteres quedarán sin cifrar a la izquierda de la palabra. Esto tiene que ser un valor entero y por defecto es <code>2</code>.
 hyphenator_config_rightMin = Min. derecha
-hyphenator_config_rightMin_description = Cuántos caracteres quedarán sin cifrar a la derecha de la palabra. Esto tiene que ser un valor entero y por defecto es 2.
+hyphenator_config_rightMin_description = Cuántos caracteres quedarán sin cifrar a la derecha de la palabra. Esto tiene que ser un valor entero y por defecto es <code>2</code>.
 hyphenator_config_wordMin = Min. longitud de palabra
-hyphenator_config_wordMin_description = Las palabras debajo de la longitud dada no se dividirán en guiones. Tiene sentido establecer esta opción en un valor mayor que la suma de rightMin y leftMin. Esto predeterminado es 6.
+hyphenator_config_wordMin_description = Las palabras debajo de la longitud dada no se dividirán en guiones. Tiene sentido establecer esta opción en un valor mayor que la suma de rightMin y leftMin. Esto predeterminado es <code>6</code>.
 
 hyphenator_config_action_save = Guardar ajustes
 hyphenator_config_saved = Ajustes guardados exitosamente

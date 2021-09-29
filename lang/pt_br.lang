@@ -2,13 +2,13 @@ hyphenator_title =  Hyphenator
 
 hyphenator_config = Configuração
 hyphenator_config_hyphen = Hífen
-hyphenator_config_hyphen_description = Esse caractere será usado como o caractere de hífen. O padrão é '& tímido;'.
+hyphenator_config_hyphen_description = Esse caractere será usado como o caractere de hífen. O padrão é <code>&shy;</code>.
 hyphenator_config_leftMin = Min. esquerda
-hyphenator_config_leftMin_description = How many characters will be left unhyphenated to the left of the word. This has to be an integer value and defaults to 2.
+hyphenator_config_leftMin_description = How many characters will be left unhyphenated to the left of the word. This has to be an integer value and defaults to <code>2</code>.
 hyphenator_config_rightMin = Min. direita
-hyphenator_config_rightMin_description = How many characters will be left unhyphenated to the right of the word. This has to be an integer value and defaults to 2.
+hyphenator_config_rightMin_description = How many characters will be left unhyphenated to the right of the word. This has to be an integer value and defaults to <code>2</code>.
 hyphenator_config_wordMin = Comprimento mínimo da palavra
-hyphenator_config_wordMin_description = Words below the given length will not be hyphenated at all. It makes sense to set this option to a higher value than the sum of rightMin and leftMin. This defaults to 6.
+hyphenator_config_wordMin_description = Words below the given length will not be hyphenated at all. It makes sense to set this option to a higher value than the sum of rightMin and leftMin. This defaults to <code>6</code>.
 
 hyphenator_config_action_save = Salvar configurações
 hyphenator_config_saved = Configurações salvas com sucesso!
