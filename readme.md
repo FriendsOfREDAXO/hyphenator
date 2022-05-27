@@ -17,13 +17,13 @@ Code-Beispiele zur Verwendung innerhalb eines Modul-Outputs:
 
 ```php
 // Text (aktuelle Sprache):
-echo hyphenator::hyphenate(REX_VALUE[id=1]);
+echo hyphenator::hyphenate('REX_VALUE[id=1]');
 
 // Text (andere Sprache):
-echo hyphenator::hyphenate(REX_VALUE[id=1], 'en');
+echo hyphenator::hyphenate('REX_VALUE[id=1]', 'en');
 
 // Markup:
-echo hyphenator::hyphenate(REX_VALUE[id=1 output=html]);
+echo hyphenator::hyphenate('REX_VALUE[id=1 output=html]');
 
 // Textile im MarkItUp Editor:
 $textile = rex_markitup::parseOutput('textile', 'REX_VALUE[id=1 output="html"]');
