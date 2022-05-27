@@ -33,6 +33,10 @@
 
 namespace Org\Heigl\Hyphenator\Tokenizer;
 
+use Iterator;
+use Countable;
+use OutOfBoundsException;
+
 /**
  * This class provides a registry for storing Tokens
  *
@@ -45,13 +49,14 @@ namespace Org\Heigl\Hyphenator\Tokenizer;
  * @version    2.0.1
  * @link       http://github.com/heiglandreas/Hyphenator
  * @since      04.11.2011
+ * @template-implements Iterator<Token>
  */
-class TokenRegistry implements \Iterator, \Countable
+class TokenRegistry implements Iterator, Countable
 {
     /**
      * Storage for the Tokens.
      *
-     * @var \Org\Heigl\Hyphenator\Tokenizer\Token[] $registry
+     * @var Token[] $registry
      */
     private $registry = array();
 
@@ -59,10 +64,8 @@ class TokenRegistry implements \Iterator, \Countable
      * Add an item to the registry
      *
      * @param \Org\Heigl\Hyphenator\Tokenizer\Token $token The token to add
-     *
-     * @return \Org\Heigl\Hyphenator\Tokenizer\TokenRegistry
      */
-    public function add(Token $token)
+    public function add(Token $token): self
     {
         $this->registry[] = $token;
 
@@ -77,10 +80,8 @@ class TokenRegistry implements \Iterator, \Countable
      *
      * @param Token   $oldToken  The token to be replaced
      * @param Token[] $newTokens The array of tokens replacing the old one
-     *
-     * @return TokenRegistry
      */
-    public function replace(Token $oldToken, array $newTokens)
+    public function replace(Token $oldToken, array $newTokens): self
     {
         // Get the current key of the element.
         $key = array_search($oldToken, $this->registry, true);
@@ -107,10 +108,8 @@ class TokenRegistry implements \Iterator, \Countable
      * Get a Token entry by its key
      *
      * @param mixed $key The key to get the token for
-     *
-     * @return Token|null
      */
-    public function getTokenWithKey($key)
+    public function getTokenWithKey($key): ?Token
     {
         if (array_key_exists($key, $this->registry)) {
             return $this->registry[$key];
@@ -122,11 +121,9 @@ class TokenRegistry implements \Iterator, \Countable
     /**
      * Implementation of \Iterator
      *
-     * @see \Iterator::rewind()
-     *
-     * @return void
+     * @see Iterator::rewind()
      */
-    public function rewind()
+    public function rewind(): void
     {
         reset($this->registry);
     }
@@ -134,35 +131,41 @@ class TokenRegistry implements \Iterator, \Countable
     /**
      * Get the current object
      *
-     * @see \Iterator::current()
-     *
-     * @return \Org\Heigl\Hyphenator\Tokenizer\Token
+     * @see Iterator::current()
      */
-    public function current()
+    public function current(): Token
     {
-        return current($this->registry);
+        $current = current($this->registry);
+
+        if (false === $current) {
+            throw new OutOfBoundsException('You requested a non-existend entry');
+        }
+
+        return $current;
     }
 
     /**
      * Get the current key
      *
-     * @see \Iterator::key()
-     *
-     * @return mixed
+     * @see Iterator::key()
      */
-    public function key()
+    public function key(): int
     {
-        return key($this->registry);
+        $key = key($this->registry);
+
+        if (null === $key) {
+            throw new OutOfBoundsException('You requested a non-existend entry');
+        }
+
+        return $key;
     }
 
     /**
      * Get the number of items in the registry
      *
-     * @see \Countable::count()
-     *
-     * @return int
+     * @see Countable::count()
      */
-    public function count()
+    public function count(): int
     {
         return count($this->registry);
     }
@@ -170,11 +173,11 @@ class TokenRegistry implements \Iterator, \Countable
     /**
      * Push the internal pointer forward one step
      *
-     * @see \Iterator::next()
+     * @see Iterator::next()
      *
      * @return void
      */
-    public function next()
+    public function next(): void
     {
         next($this->registry);
     }
@@ -182,16 +185,12 @@ class TokenRegistry implements \Iterator, \Countable
     /**
      * Check whether the current pointer is in a valid place
      *
-     * @see \Iterator::valid()
+     * @see Iterator::valid()
      *
      * @return boolean
      */
-    public function valid()
+    public function valid(): bool
     {
-        if (false === current($this->registry)) {
-            return false;
-        }
-
-        return true;
+        return null !== key($this->registry);
     }
 }

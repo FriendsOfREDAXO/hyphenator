@@ -1,29 +1,725 @@
-Autor/Author: Raimundo Moura <raimundomoura@openoffice.org>
+Autor/Author: Raimundo Moura <raimundo.smoura@gmail.com>
 
 pt-BR: Este Divisor de Sílabas está em desenvolvimento por Raimundo Moura. Ele está
-licenciado sob os termos da Licença Pública Geral Menor versão 2.1 (LGPLv2.1), como 
-publicado pela Free Software Foundation. Os créditos estão disponíveis em 
-http://www.broffice.org/creditos e você pode encontrar novas versões em 
-http://www.broffice.org/verortografico.
+licenciado sob os termos da Licença Pública Geral Menor versão 3 (LGPLv3), como
+publicado pela Free Software Foundation e pela Mozilla Public License como publicada
+pela Mozilla Foundation. Os créditos estão disponíveis em
+http://pt-br.libreoffice.org/projetos/projeto-vero-verificador-ortografico/
+e você pode encontrar novas versões em
+http://extensions.libreoffice.org
 
-
-Copyright (C) 2008 - 2009 por/by Raimundo Santos Moura <raimundomoura@openoffice.org>
+Copyright (C) 2008 - 2013 por/by Raimundo Santos Moura <raimundo.smoura@gmail.com>
 
 ========================================================================================
 APRESENTAÇÃO
 ========================================================================================
 
-O Projeto DivSilab do BrOffice.org é um projeto
+O Projeto DivSilab do LibreOffice é um projeto
 colaborativo desenvolvido pela comunidade Brasileira.
 A relação completa dos colaboradores deste projeto está em:
-http://www.broffice.org.br/creditos
+http://pt-br.libreoffice.org/projetos/projeto-vero-verificador-ortografico/
 
 O DivSilab é uma ferramenta para realizar a translineação de textos.
 Ele divide a palavra silabicamente, ficando parte no final da linha e o restante no início
-da linha inferior.  
+da linha inferior.
 ======================
 SOBRE ESTA ATUALIZAÇÃO
 ======================
+Versão 1.0.8 DivSilab
+Retirada de duplicadas:
+1n2â
+1s2â
+1t2â
+1x2â
+1z2â
+Inclusão de:
+1s2õ      (pro.vi.sões)
+Colaboração Adriano Konzen.
+
+Inclusão/alteração de:
+2e4as.
+2e4os.      (alterado de 2eos.)
+1n2ú        (alterado de 1n3ú)
+1b2â        re.tum.bân.cia
+1c2â        al.cân.ta.ra
+1d2â        a.bun.dân.cia
+1f2â        al.fân.de.ga
+1g2â        a.mal.gâ.mi.co
+1j2ô        em.jô.o
+1m2â        ger.mâ.ni.co
+1p2â        cam.pâ.nu.la
+1p2è        am.pè.re
+1r2â        ce.râ.mi.ca
+1v2â        gal.vâ.ni.co
+1x2ú        lu.xú.ria
+Colaboração Adriano Konzen.
+
+Inclusão de: 
+e1â         pre.âm.bu.lo - o.ce.â.ni.co
+h2â         bri.lhâ.ncia
+i1â         di.â.me.tro
+1j2â        ca.jâ.nea
+a3ô         fa.ra.ô.ni.co
+o3ô         al.co.ô.me.tro
+u3ô         va.cu.ô.me.tro
+
+Para corrigir separação de psi inclusão de: 
+a3p2s2i1c
+o2p3s2i1c
+a3p2s2i1q
+o2p3s2i1q
+á2p3s2i
+é2p3s2i
+í2p3s2i
+ó2p3s2i
+2p1s2i
+.p2s2i
+
+
+â1n2a
+â2n1c
+â2n1d
+â1n2e
+â2n1f
+â2n1g
+â1n2h
+â1n2i
+â2n1j
+â2n1n
+â1n2o
+â2n1q
+â2n1r
+â2n1s2i
+â2n1s2e
+â2n4s1c
+â2n4s1f
+â2n1t
+â1n2u
+â2n1v
+â2n1z
+
+Inclusão de regras para palavras acentuadas terminadas em io e ia 
+
+2á1b2i4a
+2á1c2i4a
+2á1d2i4a
+2á1f2i4a
+2á1g2i4a
+2á1l2i4a
+2á1p2i4a
+2á1r2i4a
+2á1s2i4a
+2á1t2i4a
+2á1v2i4a
+2á1x2i4a
+2á1z2i4a
+2â1m2i4a
+2â1n2i4a
+2é1b2i4a
+2é1c2i4a
+2é1d2i4a
+2é1f2i4a
+2é1g2i4a
+2é1l2i4a
+2é1n2i4a
+2é1p2i4a
+2é1r2i4a
+2é1s2i4a
+2é1t2i4a
+2é1v2i4a
+2é1x2i4a
+2é1y2i4a
+2é1z2i4a
+2ê1m2i4a
+2ê1n2i4a
+2í1b2i4a
+2í1c2i4a
+2í1d2i4a
+2í1f2i4a
+2í1g2i4a
+2í1j2i4a
+2í1l2i4a
+2í1m2i4a
+2í1n2i4a
+2í1p2i4a
+2í1r2i4a
+2í1s2i4a
+2í1t2i4a
+2í1v2i4a
+2í1x2i4a
+2í1z2i4a
+2ó1b2i4a
+2ó1c2i4a
+2ó1d2i4a
+2ó1f2i4a
+2ó1g2i4a
+2ó1j2i4a
+2ó1l2i4a
+2ó1p2i4a
+2ó1r2i4a
+2ó1s2i4a
+2ó1t2i4a
+2ó1v2i4a
+2ó1x2i4a
+2ó1z2i4a
+2ô1d2i4a
+2ô1m2i4a
+2ô1n2i4a
+2ú1b2i4a
+2ú1c2i4a
+2ú1d2i4a
+2ú1f2i4a
+2ú1g2i4a
+2ú1l2i4a
+2ú1m2i4a
+2ú1n2i4a
+2ú1p2i4a
+2ú1r2i4a
+2ú1s2i4a
+2ú1v2i4a
+2ú1x2i4a
+2ú1z2i4a
+2á1b2i4o
+2á1c2i4o
+2á1d2i4o
+2á1f2i4o
+2á1g2i4o
+2á1l2i4o
+2á1n2i4o
+2á1p2i4o
+2á1r2i4o
+2á1s2i4o
+2á1t2i4o
+2á1v2i4o
+2á1x2i4o
+2á1z2i4o
+2â1m2i4o
+2â1n2i4o
+2é1b2i4o
+2é1c2i4o
+2é1d2i4o
+2é1f2i4o
+2é1g2i4o
+2é1l2i4o
+2é1n2i4o
+2é1p2i4o
+2é1r2i4o
+2é1s2i4o
+2é1t2i4o
+2é1v2i4o
+2é1x2i4o
+2é1z2i4o
+2ê1m2i4o
+2ê1n2i4o
+2ê1s2i4o
+2í1b2i4o
+2í1c2i4o
+2í1d2i4o
+2í1f2i4o
+2í1g2i4o
+2í1l2i4o
+2í1m2i4o
+2í1n2i4o
+2í1p2i4o
+2í1r2i4o
+2í1s2i4o
+2í1t2i4o
+2í1v2i4o
+2í1z2i4o
+2ó1b2i4o
+2ó1c2i4o
+2ó1d2i4o
+2ó1f2i4o
+2ó1g2i4o
+2ó1l2i4o
+2ó1m2i4o
+2ó1p2i4o
+2ó1r2i4o
+2ó1s2i4o
+2ó1t2i4o
+2ó1v2i4o
+2ó1x2i4o
+2ó1z2i4o
+2ô1d2i4o
+2ô1m2i4o
+2ô1n2i4o
+2ú1b2i4o
+2ú1c2i4o
+2ú1d2i4o
+2ú1f2i4o
+2ú1g2i4o
+2ú1j2i4o
+2ú1l2i4o
+2ú1m2i4o
+2ú1n2i4o
+2ú1p2i4o
+2ú1r2i4o
+2ú1s2i4o
+2ú1t2i4o
+2ú1v2i4o
+2ú1z2i4o
+2á4i1b2i4a
+2â4m1b2i4a
+2é4b1b2i4a
+2é4r1b2i4a
+2é4s1b2i4a
+2í4l1b2i4a
+2í4m1b2i4a
+2í4r1b2i4a
+2ó4b1b2i4a
+2ô4m1b2i4a
+2ó4s1b2i4a
+2ú4m1b2i4a
+2á4l1c2i4a
+2â4n1c2i4a
+2á4r1c2i4a
+2á4u1c2i4a
+2ê4n1c2i4a
+2é4p1c2i4a
+2é4r1c2i4a
+2é4s1c2i4a
+2ê4u1c2i4a
+2í4l1c2i4a
+2í4n1c2i4a
+2í4r1c2i4a
+2í4s1c2i4a
+2ó4l1c2i4a
+2ô4n1c2i4a
+2ó4r1c2i4a
+2ó4s1c2i4a
+2ú4n1c2i4a
+2ú4p1c2i4a
+2ú4r1c2i4a
+2á4b1d2i4a
+2á4g1d2i4a
+2á4l1d2i4a
+2â4n1d2i4a
+2á4r1d2i4a
+2á4u1d2i4a
+2ê4i1d2i4a
+2é4l1d2i4a
+2ê4n1d2i4a
+2é4r1d2i4a
+2í4l1d2i4a
+2í4n1d2i4a
+2ó4l1d2i4a
+2ô4l1d2i4a
+2ô4n1d2i4a
+2ó4r1d2i4a
+2ú4l1d2i4a
+2ú4n1d2i4a
+2ú4r1d2i4a
+2â4n1f2i4a
+2á4r1f2i4a
+2é4l1f2i4a
+2ó4l1f2i4a
+2ô4n1f2i4a
+2ó4r1f2i4a
+2ú4l1f2i4a
+2á4i1g2i4a
+2á4l1g2i4a
+2â4n1g2i4a
+2á4r1g2i4a
+2é4r1g2i4a
+2í4n1g2i4a
+2ô4n1g2i4a
+2ó4r1g2i4a
+2ú4n1g2i4a
+2ú4r1g2i4a
+2á1c4h2i4a
+2á1l4h2i4a
+2â1n4h2i4a
+2é1c4h2i4a
+2é4t1h2i4a
+2í4g1h2i4a
+2ô1n4h2i4a
+2ú1c4h2i4a
+2á1c4l2i4a
+2á1g4l2i4a
+2á4l1l2i4a
+2á4r1l2i4a
+2á4u1l2i4a
+2é4l1l2i4a
+2é4s1l2i4a
+2é1t4l2i4a
+2ê4u1l2i4a
+2í1b4l2i4a
+2í1c4l2i4a
+2ó1g4l2i4a
+2ó1p4l2i4a
+2ô4u1l2i4a
+2á4l1m2i4a
+2á4r1m2i4a
+2á4s1m2i4a
+2á4u1m2i4a
+2ê4i1m2i4a
+2é4l1m2i4a
+2é4r1m2i4a
+2é4s1m2i4a
+2ê4s1m2i4a
+2í4m1m2i4a
+2í4s1m2i4a
+2ô4l1m2i4a
+2ó4r1m2i4a
+2ó4s1m2i4a
+2á4f1n2i4a
+2á4g1n2i4a
+2â4g1n2i4a
+2â4i1n2i4a
+2â4m1n2i4a
+2â4n1n2i4a
+2á4u1n2i4a
+2é4g1n2i4a
+2ê4i1n2i4a
+2é4r1n2i4a
+2í4g1n2i4a
+2í4m1n2i4a
+2í4r1n2i4a
+2ó4c1n2i4a
+2ó4d1n2i4a
+2ó4l1n2i4a
+2ó4r1n2i4a
+2ó4t1n2i4a
+2ú4r1n2i4a
+2á4l1p2i4a
+2â4m1p2i4a
+2á4p1p2i4a
+2á4r1p2i4a
+2é4r1p2i4a
+2í4m1p2i4a
+2í4p1p2i4a
+2ó4r1p2i4a
+2ó4s1p2i4a
+2ú4l1p2i4a
+2ú4p1p2i4a
+2á1b4r2i4a
+2á1c4r2i4a
+2á1d4r2i4a
+2á1f4r2i4a
+2á1g4r2i4a
+2â4n1r2i4a
+2á4r1r2i4a
+2á1t4r2i4a
+2á4u1r2i4a
+2é1b4r2i4a
+2é1d4r2i4a
+2é1f4r2i4a
+2é4r1r2i4a
+2é1t4r2i4a
+2ê4u1r2i4a
+2í1c4r2i4a
+2í1d4r2i4a
+2í1p4r2i4a
+2í1t4r2i4a
+2ó1d4r2i4a
+2ó1f4r2i4a
+2ô4i1r2i4a
+2ó1p4r2i4a
+2ó4r1r2i4a
+2ó1t4r2i4a
+2ô4u1r2i4a
+2ú1g4r2i4a
+2ú4r1r2i4a
+2ú1t4r2i4a
+2á4i1s2i4a
+2â4n1s2i4a
+2á4p1s2i4a
+2á4r1s2i4a
+2á4s1s2i4a
+2á4t1s2i4a
+2á4u1s2i4a
+2é4l1s2i4a
+2ê4n1s2i4a
+2é4p1s2i4a
+2é4r1s2i4a
+2é4s1s2i4a
+2é4t1s2i4a
+2ê4y1s2i4a
+2í4n1s2i4a
+2í4p1s2i4a
+2í4s1s2i4a
+2í4t1s2i4a
+2ô4n1s2i4a
+2ó4p1s2i4a
+2ó4r1s2i4a
+2ó4s1s2i4a
+2ô4u1s2i4a
+2ú4c1s2i4a
+2ú4n1s2i4a
+2ú4s1s2i4a
+2á4c1t2i4a
+2á4l1t2i4a
+2â4n1t2i4a
+2á4p1t2i4a
+2á4r1t2i4a
+2á4s1t2i4a
+2á4t1t2i4a
+2é4c1t2i4a
+2é4d1t2i4a
+2ê4n1t2i4a
+2é4r1t2i4a
+2é4s1t2i4a
+2é4t1t2i4a
+2í4c1t2i4a
+2í4d1t2i4a
+2í4f1t2i4a
+2í4n1t2i4a
+2í4p1t2i4a
+2í4s1t2i4a
+2ô4n1t2i4a
+2ó4r1t2i4a
+2ó4s1t2i4a
+2ó4t1t2i4a
+2ú4r1t2i4a
+2ú4s1t2i4a
+2á1g4u2i4a
+2á1q4u2i4a
+2é1g4u2i4a
+2é1q4u2i4a
+2í1q4u2i4a
+2ó1q4u2i4a
+2ú1q4u2i4a
+2á4l1v2i4a
+2á4u1v2i4a
+2é4r1v2i4a
+2í4l1v2i4a
+2ó4r1v2i4a
+2á4r1x2i4a
+2á4u1x2i4a
+2â4u1x2i4a
+2ê4i1x2i4a
+2á4r1z2i4a
+2ê4n1z2i4a
+2é4t1z2i4a
+2í4t1z2i4a
+2ó4l1z2i4a
+2ô4l1z2i4a
+2ô4n1z2i4a
+2ó4t1z2i4a
+2ó4z1z2i4a
+2â4m1b2i4o
+2á4r1b2i4o
+2é4r1b2i4o
+2é4s1b2i4o
+2í4m1b2i4o
+2ô4m1b2i4o
+2ó4r1b2i4o
+2ú4m1b2i4o
+2ú4r1b2i4o
+2á4l1c2i4o
+2â4n1c2i4o
+2á4r1c2i4o
+2á4s1c2i4o
+2á4u1c2i4o
+2é4l1c2i4o
+2ê4n1c2i4o
+2é4r1c2i4o
+2é4s1c2i4o
+2ê4u1c2i4o
+2í4n1c2i4o
+2í4p1c2i4o
+2í4r1c2i4o
+2í4s1c2i4o
+2ô4n1c2i4o
+2ó4r1c2i4o
+2ó4s1c2i4o
+2ú4l1c2i4o
+2ú4n1c2i4o
+2ú4r1c2i4o
+2ú4s1c2i4o
+2á4b1d2i4o
+2â4n1d2i4o
+2á4r1d2i4o
+2á4u1d2i4o
+2ê4i1d2i4o
+2ê4n1d2i4o
+2í4l1d2i4o
+2í4n1d2i4o
+2ô4n1d2i4o
+2ó4r1d2i4o
+2ú4n1d2i4o
+2ú4r1d2i4o
+2á4r1f2i4o
+2é4l1f2i4o
+2ê4n1f2i4o
+2í4l1f2i4o
+2ú4n1f2i4o
+2á4l1g2i4o
+2â4n1g2i4o
+2á4r1g2i4o
+2á4s1g2i4o
+2é4l1g2i4o
+2é4r1g2i4o
+2í4n1g2i4o
+2ô4n1g2i4o
+2ó4r1g2i4o
+2ú4r1g2i4o
+2á1c4h2i4o
+2ó1c4h2i4o
+2á1b4l2i4o
+2á1c4l2i4o
+2á4u1l2i4o
+2ê4i1l2i4o
+2í1b4l2i4o
+2í1c4l2i4o
+2í1g4l2i4o
+2ó1c4l2i4o
+2ó1g4l2i4o
+2ó1p4l2i4o
+2ú1c4l2i4o
+2á4d1m2i4o
+2á4g1m2i4o
+2á4i1m2i4o
+2á4j1m2i4o
+2á4l1m2i4o
+2á4s1m2i4o
+2á4t1m2i4o
+2é4l1m2i4o
+2é4r1m2i4o
+2é4s1m2i4o
+2í4s1m2i4o
+2ó4c1m2i4o
+2ó4l1m2i4o
+2ó4r1m2i4o
+2ó4s1m2i4o
+2á4c1n2i4o
+2á4f1n2i4o
+2á4g1n2i4o
+2â4m1n2i4o
+2á4r1n2i4o
+2á4u1n2i4o
+2é4g1n2i4o
+2ê4i1n2i4o
+2ê4m1n2i4o
+2é4r1n2i4o
+2í4c1n2i4o
+2í4f1n2i4o
+2í4g1n2i4o
+2í4m1n2i4o
+2í4r1n2i4o
+2í4s1n2i4o
+2í4t1n2i4o
+2ó4d1n2i4o
+2ó4g1n2i4o
+2ó4r1n2i4o
+2ó4s1n2i4o
+2ú4b1n2i4o
+2ú4r1n2i4o
+2á4l1p2i4o
+2â4m1p2i4o
+2á4r1p2i4o
+2á4s1p2i4o
+2á4u1p2i4o
+2é4s1p2i4o
+2í4m1p2i4o
+2ó4l1p2i4o
+2ó4r1p2i4o
+2ó4s1p2i4o
+2ú4l1p2i4o
+2á4b1r2i4o
+2á1c4r2i4o
+2á1d4r2i4o
+2á1f4r2i4o
+2á1g4r2i4o
+2á4r1r2i4o
+2á4s1r2i4o
+2á1t4r2i4o
+2á4u1r2i4o
+2é1b4r2i4o
+2é1d4r2i4o
+2é1g4r2i4o
+2ê1n4r2i4o
+2é1t4r2i4o
+2ê4u1r2i4o
+2í1b4r2i4o
+2í1d4r2i4o
+2í1p4r2i4o
+2í1t4r2i4o
+2ó1b4r2i4o
+2ó1c4r2i4o
+2ó1f4r2i4o
+2ó4h1r2i4o
+2ó1p4r2i4o
+2ó4r1r2i4o
+2ó1t4r2i4o
+2ú1b4r2i4o
+2ú4h1r2i4o
+2ú4r1r2i4o
+2ú1t4r2i4o
+2á4i1s2i4o
+2á4r1s2i4o
+2á4s1s2i4o
+2á4u1s2i4o
+2ê4n1s2i4o
+2é4p1s2i4o
+2é4r1s2i4o
+2é4s1s2i4o
+2í4s1s2i4o
+2ô4n1s2i4o
+2ó4p1s2i4o
+2ó4s1s2i4o
+2ú4r1s2i4o
+2ú4s1s2i4o
+2á4c1t2i4o
+2â4n1t2i4o
+2á4r1t2i4o
+2á4s1t2i4o
+2é4l1t2i4o
+2ê4n1t2i4o
+2é4r1t2i4o
+2é4s1t2i4o
+2í4c1t2i4o
+2í4n1t2i4o
+2í4p1t2i4o
+2í4r1t2i4o
+2í4s1t2i4o
+2ó4c1t2i4o
+2ó4l1t2i4o
+2ô4n1t2i4o
+2ó4p1t2i4o
+2ó4s1t2i4o
+2ú4r1t2i4o
+2ú4s1t2i4o
+2á1q4u2i4o
+2é1q4u2i4o
+2í1q4u2i4o
+2ó1q4u2i4o
+2á4l1v2i4o
+2â4n1v2i4o
+2é4l1v2i4o
+2é4r1v2i4o
+2í4l1v2i4o
+2í4n1v2i4o
+2ó4b1v2i4o
+2ú4l1v2i4o
+2é4l1z2i4o
+
+
+
+Versão 1.0.7 DivSilab
+
+Correção da quebra de sílabas das palavras com 'guin', como: 'seguintes' ERRADO(se-gu-in-tes)
+Colaboração Flávio Cardoso;
+inclusão das regras:
+1g2u4i3n2a
+1g2u4i3n2á
+1g2u4i2n1c
+1g2u4i2n1d
+1g2u4i3n2e
+1g2u4i3n2é
+1g2u4i2n1g
+1g2u4i3n2h
+1g2u4i3n2i
+1g2u4i3n2í
+1g2u4i2n1j
+1g2u4i3n2o
+1g2u4i3n2ó
+1g2u4i2n2s
+1g2u4i2n1t
+1g2u4i3n2u
+1g2u4i2n1x
+
+
 Versão 1.0.6 DivSilab
 
 Correção da quebra de sílabas das palavras com 'br', como: 'vibração' ERRADO(vib-ra-ção)
@@ -185,7 +881,7 @@ Sílabas '1rais.' estão duplicadas com 'r2a2i4s.'. Concatenada '1r2a3i4s.'!
 Sílabas 'r2a3y' estão duplicadas com 'r2a2y3'. Concatenada 'r2a3y3'!
 Sílabas '1ra3ó' estão duplicadas com 'r2a3ó'. Concatenada '1r2a3ó'!
 Sílabas '1s2e' estão duplicadas com '1s2e'. Ignorada!
-Colaboração Adriano Konzen  
+Colaboração Adriano Konzen
 
 Correção da quebra de sílabas das palavras 'envolvidos' (en-vo-lvi-dos)
 substituição  de 'o1l2v' por 'o2l1v'
@@ -615,25 +1311,25 @@ Versões Anteriores
 
 Versão 1.0.2 DivSilab
 
-Nesta atualização foi implementado o DivSilab - Divisor de Sílabas do BrOffice.org.
+Nesta atualização foi implementado o DivSilab - Divisor de Sílabas do LibreOffice.
 
 Desenvolvido com base no léxico do VERO, através de análise combinatória,
 extraíndo-se os casos reais e descartando-se as condições inexistentes.
 
 O DivSilab é um arquivo texto. Seu desenvolvimento está baseado no algorítmo de Frank M. Liang.
 O algorítimo de Liang usa valores entre 0 e 9  –  exclui-se o valor 0 (zero), uma vez que está
-implícito. Valores ímpares indicam possíveis pontos divisão silábica, e os valores pares 
-(incluindo 0) indicam pontos que não devem ter divisão. Números mais altos indicam uma maior 
-magnitude do "melhor" para os números ímpares, e pares uma maior amplitude do "pior". 
+implícito. Valores ímpares indicam possíveis pontos divisão silábica, e os valores pares
+(incluindo 0) indicam pontos que não devem ter divisão. Números mais altos indicam uma maior
+magnitude do "melhor" para os números ímpares, e pares uma maior amplitude do "pior".
 O ponto (.) indica a extremidade de uma palavra. À esquerda início e à direita término.
 
 Exemplo:
 Examinemos a palavra a baixo.
- 
+
   Silábicas
- 
+
 Extraindo-se do arquivo somente as regras envolvidas para a formação desta palavra vamos encontrar:
- 
+
   s2i
   i3l2á
   l4á
@@ -642,13 +1338,13 @@ Extraindo-se do arquivo somente as regras envolvidas para a formação desta palav
   i1c4
   3c2a
   2s.
- 
+
 Compondo teremos:
- 
+
 obs.: mude a fonte para Courier New para visualizar melhor o exemplo.
- 
+
 s i l á b i c a s
-s2i 
+s2i
     l4á
   i3l2á
     l4á
@@ -659,12 +1355,12 @@ s2i
                2s.
 ------------------
 s2i3l4á3b2i3c4a2s   <--- Resultado
-s i-l á-b i-c a s --> si-lá-bi-cas 
- 
+s i-l á-b i-c a s --> si-lá-bi-cas
+
 Obs.: ao resultado é agregado o maior peso de cada coluna.
- 
- 
- 
+
+
+
 Esquema de Liang
 --------------------------------------------------
 Descrição         Peso       Entrada Liang
@@ -679,42 +1375,20 @@ Pior que acima     -1             2
 Pior que acima     -2             4
 Pior que acima     -3             6
 Pior que acima     -4             8
--------------------------------------------------- 
- 
+--------------------------------------------------
+
 No nosso trabalho usamos até o nível 6.
 Foram desenvolvidos três pequenos aplicativos. Um para gerar combinações ' ab','ac' ,'ad'
 ... 'ich', 'ras', etc, etc.
 O outro para conferir a existência destas combinações no léxico do VERO, extraindo somente
 as válidas e o número de ocorrências de cada uma.
-E um terceiro para extrair as regras envolvidas na composição de uma determinada palavra. 
+E um terceiro para extrair as regras envolvidas na composição de uma determinada palavra.
 Usamos uma planilha no Calc para ordenar e configurar as regras, começando pelas de maior
-incidência. As combinações óbvias como 'ca', 'ba', 'pr', dr, bl... 
-foram rapidamente configuradas ...'c2a', 'b2a', 'p4r', 'd4r', 'b4l' ...   
+incidência. As combinações óbvias como 'ca', 'ba', 'pr', dr, bl...
+foram rapidamente configuradas ...'c2a', 'b2a', 'p4r', 'd4r', 'b4l' ...
 Para os mais complexos, extraímos do Vero todas as palavras contempladas com a combinação
 pesquisada, e criamos as regras. Exemplo 'ic'
 mICAreta --> i3c2a
 frICCionar --> i2c3c4
 mICRo  --> i2c3r4
 ...
-
-========================================================================================
-COMO INSTALAR O DIVSILAB NO BROFFICE.ORG
-========================================================================================
-
-Copie o arquivo hyph_pt_BR.dic para o diretório <BrOffice.org>
-/share/dict/ooo, onde <BrOffice.org> é o diretório em que o programa 
-foi instalado.
-
-No Windows, normalmente, o caminho é este: 
-C:\Arquivos de programas\BrOffice.org 2.0\share\dict\ooo, e no  Linux
-/opt/BrOffice.org/share/dict/ooo/.
-
-No mesmo diretório, localize o arquivo dictionary.lst. Abra-o com um
-editor de textos e acrescente a seguinte linha ao final(se não
-existir):
-
-HYPH pt BR hyph_pt_BR
-
-É necessário reiniciar o BrOffice, inclusive o 'Iniciador Rápido' da versão
-para Windows que fica na barra de tarefas, para que funcione.
-
