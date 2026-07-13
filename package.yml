@@ -5,13 +5,18 @@ supportpage: github.com/FriendsOfREDAXO/hyphenator
 
 page:
     title: 'translate:title'
-    perm: hyphenator[]
+    perm: 'hyphenator[]'
     pjax: true
     icon: rex-icon fa-file-text-o
     subpages:
-        demo: { title: 'translate:demo', perm: hyphenator[] }
-        config: { title: 'translate:config', perm: hyphenator[config] }
+        demo:
+            title: 'translate:demo'
+            perm: 'hyphenator[]'
+        config:
+            title: 'translate:config'
+            perm: 'hyphenator[config]'
 
 requires:
-    redaxo: '>=5.19.0'
-    php: '>=8.4'
+    redaxo: '^5.19.0'
+    php:
+        version: '>=8.4'
