@@ -170,16 +170,16 @@ class Hyphenator
             return true;
         }
 
-        $hyphenatorState = strtolower(trim($element->getAttribute('data-hyphenator')));
+        $hyphenatorState = strtolower(trim(self::getElementAttribute($element, 'data-hyphenator')));
         if ('off' === $hyphenatorState || 'false' === $hyphenatorState) {
             return true;
         }
 
-        if ('true' === strtolower($element->getAttribute('aria-hidden'))) {
+        if ('true' === strtolower(self::getElementAttribute($element, 'aria-hidden'))) {
             return true;
         }
 
-        $classes = trim($element->getAttribute('class'));
+        $classes = trim(self::getElementAttribute($element, 'class'));
         if ('' === $classes) {
             return false;
         }
@@ -346,7 +346,12 @@ class Hyphenator
     private static function normalizeLanguage(string $language): string
     {
         if ('' === trim($language)) {
-            $language = \rex_clang::getCurrent()->getCode();
+            $clangCode = \rex_clang::getCurrent()->getCode();
+            $language = is_string($clangCode) ? $clangCode : '';
+        }
+
+        if ('' === trim($language)) {
+            $language = 'en';
         }
 
         $normalized = str_replace('-', '_', trim($language));
@@ -363,7 +368,7 @@ class Hyphenator
 
     private static function resolveElementLanguage(\Dom\Element $element, string $defaultLanguage, string $currentLanguage): string
     {
-        $lang = trim($element->getAttribute('lang'));
+        $lang = trim(self::getElementAttribute($element, 'lang'));
         if ('' === $lang) {
             return $currentLanguage;
         }
@@ -407,5 +412,12 @@ class Hyphenator
         }
 
         return $mapping[substr($language, 0, 2)] ?? 'en_GB';
+    }
+
+    private static function getElementAttribute(\Dom\Element $element, string $attribute): string
+    {
+        $value = $element->getAttribute($attribute);
+
+        return is_string($value) ? $value : '';
     }
 }

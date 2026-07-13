@@ -1,4 +1,14 @@
 hyphenator_title =  Hyphenator
+hyphenator_demo = Demo
+hyphenator_demo_title = Hyphenator demo
+hyphenator_demo_description = This demo shows long words and running text before and after hyphenation.
+hyphenator_demo_language = Test language
+hyphenator_demo_apply = Refresh demo
+hyphenator_demo_source = Source text (without hyphenation)
+hyphenator_demo_result = Result (with hyphenation)
+hyphenator_demo_preview_rendered = Rendered preview (resizable)
+hyphenator_demo_preview_markup = Markup output (technical)
+hyphenator_demo_hint = Tip: Configure exclusions via tags, classes or CSS selectors and reload the demo.
 
 hyphenator_config = Configuração
 hyphenator_config_hyphen = Hífen

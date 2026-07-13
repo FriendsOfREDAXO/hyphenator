@@ -9,6 +9,7 @@ page:
     pjax: true
     icon: rex-icon fa-file-text-o
     subpages:
+        demo: { title: 'translate:demo', perm: hyphenator[] }
         config: { title: 'translate:config', perm: hyphenator[config] }
 
 requires:

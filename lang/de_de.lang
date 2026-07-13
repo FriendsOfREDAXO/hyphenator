@@ -1,4 +1,14 @@
 hyphenator_title = Hyphenator
+hyphenator_demo = Demo
+hyphenator_demo_title = Hyphenator-Demo
+hyphenator_demo_description = Diese Demo zeigt lange Wörter und Fließtext vor und nach der Silbentrennung.
+hyphenator_demo_language = Test-Sprache
+hyphenator_demo_apply = Demo aktualisieren
+hyphenator_demo_source = Originaltext (ohne Trennung)
+hyphenator_demo_result = Ergebnis (mit Trennung)
+hyphenator_demo_preview_rendered = Gerenderte Vorschau (resizable)
+hyphenator_demo_preview_markup = Markup-Ausgabe (technisch)
+hyphenator_demo_hint = Tipp: Ausschlüsse über Tags, Klassen oder freie CSS-Selektoren in der Konfiguration setzen und die Demo erneut laden.
 
 hyphenator_config = Konfiguration
 hyphenator_config_hyphen = Trenn-Symbol
