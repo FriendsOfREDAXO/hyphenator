@@ -1,6 +1,3 @@
-
-vendor/.DS_Store
 .DS_Store
-vendor/composer/*
+vendor/
 composer.lock
-vendor/autoload.php

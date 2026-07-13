@@ -2,16 +2,23 @@ hyphenator_title = Hyphenator
 
 hyphenator_config = Konfiguration
 hyphenator_config_hyphen = Trenn-Symbol
-hyphenator_config_hyphen_description = This character shall be used as Hyphen-Character. This defaults to <code>&shy;</code>.
+hyphenator_config_hyphen_description = Dieses Zeichen wird als Trennzeichen eingefügt. Standard ist <code>&shy;</code>.
 hyphenator_config_leftMin = Min. Links
-hyphenator_config_leftMin_description = How many characters have to be left unhyphenated to the left of the word. This has to be an integer value and defaults to <code>2</code>.
+hyphenator_config_leftMin_description = Wie viele Zeichen links im Wort ungetrennt bleiben müssen. Standard ist <code>2</code>.
 hyphenator_config_rightMin = Min. Rechts
-hyphenator_config_rightMin_description = How many characters have to be left unhyphenated to the right of the word. This has to be an integer value and defaults to <code>2</code>.
+hyphenator_config_rightMin_description = Wie viele Zeichen rechts im Wort ungetrennt bleiben müssen. Standard ist <code>2</code>.
 hyphenator_config_wordMin = Min. Wortlänge
-hyphenator_config_wordMin_description = Words under the given length will not be hyphenated altogether. It makes sense to set option to a higher value than the sum of rightMin and leftMin. This defaults to <code>6</code>.
+hyphenator_config_wordMin_description = Wörter unterhalb dieser Länge werden nicht getrennt. Der Wert sollte größer sein als die Summe aus links und rechts. Standard ist <code>6</code>.
+hyphenator_config_excludeTags = Ausgeschlossene HTML-Tags
+hyphenator_config_excludeTags_description = Kommagetrennte Liste von Tags, die niemals getrennt werden sollen, z. B. <code>code,pre,script,style</code>.
+hyphenator_config_excludeClasses = Ausgeschlossene CSS-Klassen
+hyphenator_config_excludeClasses_description = Kommagetrennte Liste von Klassen, deren Inhalte nicht getrennt werden, z. B. <code>no-hyphen,sr-only</code>.
+hyphenator_config_excludeSelectors = Ausgeschlossene CSS-Selektoren
+hyphenator_config_excludeSelectors_description = Ein Selektor pro Zeile. Unterstützt z. B. <code>#main-nav</code>, <code>.teaser a</code>, <code>article p:not(.allow-hyphen)</code>.
 
 hyphenator_config_action_save = Einstellungen speichern
 hyphenator_config_saved = Einstellungen wurden gespeichert!
+hyphenator_config_token_invalid = Sicherheits-Token ungültig. Bitte Seite neu laden und erneut speichern.
 
 perm_general_hyphenator[] = Rechte für das Hyphenator-Addon
 perm_general_hyphenator[config] = Rechte für die Konfiguratonsseite des Hyphenator-Addons

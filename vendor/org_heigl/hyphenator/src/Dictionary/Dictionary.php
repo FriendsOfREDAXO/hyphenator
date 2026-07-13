@@ -56,7 +56,7 @@ class Dictionary
     /**
      * The internal storage for the dictionary.
      *
-     * @var array $dictionary
+     * @var array<string, mixed> $dictionary
      */
     private $dictionary = array();
 
@@ -111,7 +111,7 @@ class Dictionary
         $dictionary = new Dictionary();
 
         foreach (parse_ini_file($file) as $key => $val) {
-            $dictionary->dictionary[str_replace('@:', '', $key)] = $val;
+            $dictionary->dictionary[(string) str_replace('@:', '', $key)] = $val;
         }
 
         return $dictionary;
@@ -133,7 +133,7 @@ class Dictionary
             return $this;
         }
         foreach (parse_ini_file($file) as $key => $val) {
-            $this->dictionary[str_replace('@:', '', $key)] = $val;
+            $this->dictionary[(string) str_replace('@:', '', $key)] = $val;
         }
 
         return $this;

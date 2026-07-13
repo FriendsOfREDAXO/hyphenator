@@ -1,5 +1,5 @@
 package: hyphenator
-version: '1.3.0'
+version: '2.0.0'
 author: Friends Of REDAXO
 supportpage: github.com/FriendsOfREDAXO/hyphenator
 
@@ -12,4 +12,5 @@ page:
         config: { title: 'translate:config', perm: hyphenator[config] }
 
 requires:
-    redaxo: '>=5.1.0'
+    redaxo: '>=5.19.0'
+    php: '>=8.4'

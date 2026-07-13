@@ -1,5 +1,7 @@
 {
     "require": {
-        "org_heigl/hyphenator": "^3.0"
+        "ext-intl": "*",
+        "php": "^8.4",
+        "org_heigl/hyphenator": "^3.1"
     }
 }

@@ -9,9 +9,16 @@ hyphenator_config_rightMin = Min. direita
 hyphenator_config_rightMin_description = How many characters will be left unhyphenated to the right of the word. This has to be an integer value and defaults to <code>2</code>.
 hyphenator_config_wordMin = Comprimento mínimo da palavra
 hyphenator_config_wordMin_description = Words below the given length will not be hyphenated at all. It makes sense to set this option to a higher value than the sum of rightMin and leftMin. This defaults to <code>6</code>.
+hyphenator_config_excludeTags = Excluded HTML tags
+hyphenator_config_excludeTags_description = Comma-separated list of tags that must not be hyphenated, for example <code>code,pre,script,style</code>.
+hyphenator_config_excludeClasses = Excluded CSS classes
+hyphenator_config_excludeClasses_description = Comma-separated list of classes whose content must not be hyphenated, for example <code>no-hyphen,sr-only</code>.
+hyphenator_config_excludeSelectors = Excluded CSS selectors
+hyphenator_config_excludeSelectors_description = One selector per line. Supports selectors like <code>#main-nav</code>, <code>.teaser a</code>, <code>article p:not(.allow-hyphen)</code>.
 
 hyphenator_config_action_save = Salvar configurações
 hyphenator_config_saved = Configurações salvas com sucesso!
+hyphenator_config_token_invalid = Invalid security token. Please reload the page and try again.
 
 perm_general_hyphenator[] = Permissões para o Hyphenator-Addon
 perm_general_hyphenator[config] = Permissões para a página de configuração do Hyphenator-Addon
