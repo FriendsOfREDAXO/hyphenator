@@ -11,6 +11,7 @@ if (rex_post('config-submit', 'boolean')) {
             ['leftMin', 'int'],
             ['rightMin', 'int'],
             ['wordMin', 'int'],
+            ['excludeWords', 'string'],
             ['excludeTags', 'string'],
             ['excludeClasses', 'string'],
             ['excludeSelectors', 'string'],
@@ -21,6 +22,7 @@ if (rex_post('config-submit', 'boolean')) {
             'leftMin' => max(1, min(10, (int) ($postedConfig['leftMin'] ?? 2))),
             'rightMin' => max(1, min(10, (int) ($postedConfig['rightMin'] ?? 2))),
             'wordMin' => max(2, min(50, (int) ($postedConfig['wordMin'] ?? 6))),
+            'excludeWords' => trim((string) ($postedConfig['excludeWords'] ?? '')),
             'excludeTags' => trim((string) ($postedConfig['excludeTags'] ?? '')),
             'excludeClasses' => trim((string) ($postedConfig['excludeClasses'] ?? '')),
             'excludeSelectors' => trim((string) ($postedConfig['excludeSelectors'] ?? '')),
@@ -67,6 +69,14 @@ $formElements = [];
     $n['note'] = $this->i18n('config_wordMin_description');
     $formElements[] = $n;
 //End - wordMin
+
+//Start - excludeWords
+    $n = [];
+    $n['label'] = '<label for="hyphenator-config-excludeWords">'.$this->i18n('config_excludeWords').'</label>';
+    $n['field'] = '<textarea class="form-control" rows="3" id="hyphenator-config-excludeWords" name="config[excludeWords]">'.rex_escape((string) $this->getConfig('excludeWords', '')).'</textarea>';
+    $n['note'] = $this->i18n('config_excludeWords_description');
+    $formElements[] = $n;
+//End - excludeWords
 
 //Start - excludeTags
     $n = [];

@@ -55,10 +55,15 @@ class Hyphenator
             return '';
         }
 
+        $config = self::getConfig();
         $hyphenator = self::getHyphenator(self::normalizeLanguage($language));
         $result = preg_replace_callback(
             '/\p{L}[\p{L}\p{Mn}\p{Pc}\x{2019}\']*/u',
-            static function (array $match) use ($hyphenator): string {
+            static function (array $match) use ($hyphenator, $config): string {
+                if (self::shouldExcludeWord($match[0], $config['excludeWordsLookup'])) {
+                    return $match[0];
+                }
+
                 return $hyphenator->hyphenate($match[0]);
             },
             $text,
@@ -91,6 +96,7 @@ class Hyphenator
             $root,
             $config['excludeTags'],
             $config['excludeClasses'],
+            $config['excludeWordsLookup'],
             $defaultLanguage,
             $defaultLanguage,
         );
@@ -102,6 +108,7 @@ class Hyphenator
         \Dom\Node $node,
         array $excludedTags,
         array $excludedClasses,
+        array $excludedWordsLookup,
         string $defaultLanguage,
         string $currentLanguage,
         bool $inExcludedContext = false
@@ -116,7 +123,7 @@ class Hyphenator
 
         if ($node instanceof \Dom\Text) {
             if (!$isExcluded) {
-                $node->textContent = self::hyphenateTextNode($node->textContent, self::getHyphenator($activeLanguage));
+                $node->textContent = self::hyphenateTextNode($node->textContent, self::getHyphenator($activeLanguage), $excludedWordsLookup);
             }
 
             return;
@@ -130,6 +137,7 @@ class Hyphenator
                     $child,
                     $excludedTags,
                     $excludedClasses,
+                    $excludedWordsLookup,
                     $defaultLanguage,
                     $activeLanguage,
                     $isExcluded,
@@ -138,7 +146,7 @@ class Hyphenator
         }
     }
 
-    private static function hyphenateTextNode(string $text, \Org\Heigl\Hyphenator\Hyphenator $hyphenator): string
+    private static function hyphenateTextNode(string $text, \Org\Heigl\Hyphenator\Hyphenator $hyphenator, array $excludedWordsLookup): string
     {
         if ('' === trim($text)) {
             return $text;
@@ -146,7 +154,11 @@ class Hyphenator
 
         $result = preg_replace_callback(
             '/\p{L}[\p{L}\p{Mn}\p{Pc}\x{2019}\']*/u',
-            static function (array $match) use ($hyphenator): string {
+            static function (array $match) use ($hyphenator, $excludedWordsLookup): string {
+                if (self::shouldExcludeWord($match[0], $excludedWordsLookup)) {
+                    return $match[0];
+                }
+
                 return $hyphenator->hyphenate($match[0]);
             },
             $text,
@@ -251,6 +263,7 @@ class Hyphenator
                 self::DEFAULT_EXCLUDED_CLASSES,
             ),
             'excludeSelectors' => self::normalizeSelectors((string) ($rawConfig['excludeSelectors'] ?? '')),
+            'excludeWordsLookup' => self::buildWordLookup((string) ($rawConfig['excludeWords'] ?? '')),
         ];
 
         return self::$config;
@@ -292,6 +305,51 @@ class Hyphenator
         }
 
         return array_values(array_unique($selectors));
+    }
+
+    private static function buildWordLookup(string $value): array
+    {
+        if ('' === trim($value)) {
+            return [];
+        }
+
+        $parts = preg_split('/\r\n|\r|\n|,|;/', $value);
+        if (!is_array($parts)) {
+            return [];
+        }
+
+        $lookup = [];
+        foreach ($parts as $entry) {
+            $normalized = self::normalizeWord((string) $entry);
+            if ('' !== $normalized) {
+                $lookup[$normalized] = true;
+            }
+        }
+
+        return $lookup;
+    }
+
+    private static function shouldExcludeWord(string $word, array $lookup): bool
+    {
+        if ([] === $lookup) {
+            return false;
+        }
+
+        return isset($lookup[self::normalizeWord($word)]);
+    }
+
+    private static function normalizeWord(string $word): string
+    {
+        $word = trim($word);
+        if ('' === $word) {
+            return '';
+        }
+
+        if (function_exists('mb_strtolower')) {
+            return mb_strtolower($word, 'UTF-8');
+        }
+
+        return strtolower($word);
     }
 
     private static function applyExcludedSelectors(\Dom\Element $root, array $selectors): void
