@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.0.1 - 2026-07-17
+
+### Behoben
+
+- Ausgabeproblem bei Soft-Hyphens behoben: Das Addon verwendet intern wieder das echte Soft-Hyphen-Zeichen statt des Literal-Strings `&shy;`.
+- Bereits gespeicherte Konfigurationswerte wie `&shy;`, `&#173;` und `&#xAD;` werden beim Laden automatisch normalisiert.
+- Locale-Auflösung für weitere Sprachen verbessert, damit vorhandene Dictionaries wie `fr`, `it_IT`, `nl_NL`, `sv` oder `es` korrekt gefunden werden.
+- HTML-Autodetektion präzisiert, damit Klartext mit Zeichenfolgen wie `<` und `>` nicht fälschlich als Markup verarbeitet wird.
+
+### Dokumentation
+
+- Hinweise für das Feld `Trenn-Symbol` im Backend ergänzt.
+- README um Erläuterungen zum Soft-Hyphen und zu erlaubten Eingaben erweitert.
+
 ## 2.0.0 - 2026-07-13
 
 ### Highlights

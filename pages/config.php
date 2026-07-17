@@ -34,6 +34,8 @@ if (rex_post('config-submit', 'boolean')) {
     }
 }
 
+echo rex_view::info($this->i18n('config_hyphen_help'));
+
 $content = '<fieldset>';
 
 $formElements = [];
@@ -41,8 +43,8 @@ $formElements = [];
 //Start - hyphen
     $n = [];
     $n['label'] = '<label for="hyphenator-config-hyphen">'.$this->i18n('config_hyphen').'</label>';
-    $n['field'] = '<input class="form-control" type="text" id="hyphenator-config-hyphen" name="config[hyphen]" value="'.rex_escape($this->getConfig('hyphen')).'">';
-    $n['note'] = $this->i18n('config_hyphen_description');
+    $n['field'] = '<input class="form-control" type="text" id="hyphenator-config-hyphen" name="config[hyphen]" placeholder="'.rex_escape((string) $this->i18n('config_hyphen_placeholder')).'" value="'.rex_escape($this->getConfig('hyphen')).'">';
+    $n['note'] = $this->i18n('config_hyphen_description') . '<br>' . $this->i18n('config_hyphen_note');
     $formElements[] = $n;
 //End - hyphen
 

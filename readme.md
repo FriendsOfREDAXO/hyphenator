@@ -87,6 +87,14 @@ Hinweise:
 - Für gemischte Inhalte in einem HTML-Block immer `lang` an den betroffenen Elementen setzen.
 - Für reine Textstrings ohne HTML ist der Sprachparameter der robusteste Weg.
 
+## Trenn-Symbol / Soft-Hyphen
+
+Standardmäßig verwendet das Addon das unsichtbare Soft-Hyphen `&shy;` als Trennzeichen.
+
+- Wenn das Feld `Trenn-Symbol` in der Konfiguration leer bleibt, wird automatisch dieses Standardzeichen verwendet.
+- Für eine besser sichtbare Eingabe im Backend dürfen dort auch `&shy;`, `&#173;` oder `&#xAD;` eingetragen werden. Diese Werte werden intern automatisch auf das echte Soft-Hyphen-Zeichen normalisiert.
+- Wer bewusst ein sichtbares Trennzeichen möchte, kann stattdessen z. B. `-` speichern.
+
 ### Bereiche von der Trennung ausschließen
 
 - Globale Ausschlüsse über die Konfiguration (`Ausgeschlossene HTML-Tags`, `Ausgeschlossene CSS-Klassen`)

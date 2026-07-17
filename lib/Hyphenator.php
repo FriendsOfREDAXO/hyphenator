@@ -5,7 +5,7 @@ namespace FriendsOfRedaxo\Hyphenator;
 class Hyphenator
 {
     private const EXCLUDE_RUNTIME_ATTRIBUTE = 'data-hyphenator-ignore-runtime';
-    private const DEFAULT_HYPHEN = '&shy;';
+    private const DEFAULT_HYPHEN = "\u{00AD}";
     private const DEFAULT_LEFT_MIN = 2;
     private const DEFAULT_RIGHT_MIN = 2;
     private const DEFAULT_WORD_MIN = 6;
@@ -32,6 +32,7 @@ class Hyphenator
     ];
 
     private static array $hyphenators = [];
+    private static ?array $availableLocales = null;
     private static ?array $config = null;
 
     public static function hyphenate(string $string, string $language = ''): string
@@ -244,10 +245,7 @@ class Hyphenator
         $addon = \rex_addon::get('hyphenator');
         $rawConfig = $addon->getConfig();
 
-        $hyphen = trim((string) ($rawConfig['hyphen'] ?? ''));
-        if ('' === $hyphen) {
-            $hyphen = self::DEFAULT_HYPHEN;
-        }
+        $hyphen = self::normalizeHyphen((string) ($rawConfig['hyphen'] ?? ''));
 
         self::$config = [
             'hyphen' => $hyphen,
@@ -267,6 +265,19 @@ class Hyphenator
         ];
 
         return self::$config;
+    }
+
+    private static function normalizeHyphen(string $hyphen): string
+    {
+        $hyphen = trim($hyphen);
+        if ('' === $hyphen) {
+            return self::DEFAULT_HYPHEN;
+        }
+
+        return match (strtolower($hyphen)) {
+            '&shy;', '&#173;', '&#xad;' => self::DEFAULT_HYPHEN,
+            default => $hyphen,
+        };
     }
 
     private static function normalizeList(string $value, array $defaults): array
@@ -398,7 +409,7 @@ class Hyphenator
 
     private static function looksLikeHtml(string $value): bool
     {
-        return preg_match('/<[^>]+>/', $value) === 1;
+        return preg_match('/<\/?[a-z][^>]*>|<![a-z][^>]*>|<\?[a-z][^>]*\?>/i', $value) === 1;
     }
 
     private static function normalizeLanguage(string $language): string
@@ -442,34 +453,109 @@ class Hyphenator
             throw new \RuntimeException('The intl extension is required.');
         }
 
-        $mapping = [
+        $preferredRegionalFallbacks = [
+            'bg' => 'bg_BG',
+            'cs' => 'cs_CZ',
+            'da' => 'da_DK',
             'de' => 'de_DE',
+            'el' => 'el_GR',
             'en' => 'en_GB',
-            'es' => 'es_ES',
+            'et' => 'et_EE',
+            'hr' => 'hr_HR',
+            'hu' => 'hu_HU',
+            'id' => 'id_ID',
+            'it' => 'it_IT',
+            'nb' => 'nb_NO',
+            'nl' => 'nl_NL',
+            'nn' => 'nn_NO',
+            'pl' => 'pl_PL',
             'pt' => 'pt_BR',
-            'sv' => 'sv_SE',
+            'ro' => 'ro_RO',
+            'ru' => 'ru_RU',
+            'sk' => 'sk_SK',
+            'sl' => 'sl_SI',
+            'te' => 'te_IN',
+            'uk' => 'uk_UA',
+            'zu' => 'zu_ZA',
         ];
 
         $canonical = \Locale::canonicalize(str_replace('_', '-', $language));
-        if (is_string($canonical) && '' !== $canonical) {
-            $parts = \Locale::parseLocale($canonical);
-            $lang = isset($parts['language']) ? strtolower((string) $parts['language']) : '';
-            $region = isset($parts['region']) ? strtoupper((string) $parts['region']) : '';
+        $normalizedLanguage = is_string($canonical) && '' !== $canonical ? $canonical : str_replace('_', '-', $language);
+        $parts = \Locale::parseLocale($normalizedLanguage);
+        $lang = isset($parts['language']) ? strtolower((string) $parts['language']) : '';
+        $region = isset($parts['region']) ? strtoupper((string) $parts['region']) : '';
 
-            if ('' !== $lang && '' !== $region) {
-                return $lang . '_' . $region;
-            }
+        $availableLocales = self::getAvailableLocales();
 
-            if ('' !== $lang && isset($mapping[$lang])) {
-                return $mapping[$lang];
+        if ('' !== $lang && '' !== $region) {
+            $exactLocale = $lang . '_' . $region;
+            if (isset($availableLocales[strtolower($exactLocale)])) {
+                return $availableLocales[strtolower($exactLocale)];
             }
         }
 
-        if (preg_match('/^[a-z]{2}_[a-z]{2}$/', $language) === 1) {
-            return substr($language, 0, 2) . '_' . strtoupper(substr($language, 3, 2));
+        if ('' !== $lang) {
+            if (isset($availableLocales[$lang])) {
+                return $availableLocales[$lang];
+            }
+
+            $regionalMatches = self::findRegionalLocaleMatches($availableLocales, $lang);
+            if (1 === count($regionalMatches)) {
+                return $regionalMatches[0];
+            }
+
+            if (isset($preferredRegionalFallbacks[$lang])) {
+                $preferredLocale = strtolower($preferredRegionalFallbacks[$lang]);
+                if (isset($availableLocales[$preferredLocale])) {
+                    return $availableLocales[$preferredLocale];
+                }
+            }
         }
 
-        return $mapping[substr($language, 0, 2)] ?? 'en_GB';
+        return $availableLocales['en_gb'] ?? 'en_GB';
+    }
+
+    private static function getAvailableLocales(): array
+    {
+        if (null !== self::$availableLocales) {
+            return self::$availableLocales;
+        }
+
+        $availableLocales = [];
+        $dictionaryPath = \rex_path::addon('hyphenator', 'vendor/org_heigl/hyphenator/src/share/files/dictionaries');
+
+        if (is_dir($dictionaryPath)) {
+            foreach (scandir($dictionaryPath) ?: [] as $entry) {
+                if (!is_string($entry) || '.' === $entry || '..' === $entry) {
+                    continue;
+                }
+
+                if ('ini' !== strtolower((string) pathinfo($entry, PATHINFO_EXTENSION))) {
+                    continue;
+                }
+
+                $locale = (string) pathinfo($entry, PATHINFO_FILENAME);
+                $availableLocales[strtolower($locale)] = $locale;
+            }
+        }
+
+        self::$availableLocales = $availableLocales;
+
+        return self::$availableLocales;
+    }
+
+    private static function findRegionalLocaleMatches(array $availableLocales, string $language): array
+    {
+        $matches = [];
+        foreach ($availableLocales as $normalizedLocale => $locale) {
+            if (str_starts_with($normalizedLocale, $language . '_')) {
+                $matches[] = $locale;
+            }
+        }
+
+        sort($matches);
+
+        return $matches;
     }
 
     private static function getElementAttribute(\Dom\Element $element, string $attribute): string
