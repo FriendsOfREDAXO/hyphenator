@@ -11,11 +11,11 @@ hyphenator_demo_preview_markup = Markup output (technical)
 hyphenator_demo_hint = Tip: Configure exclusions via tags, classes or CSS selectors and reload the demo.
 
 hyphenator_config = Configuration
-hyphenator_config_hyphen = Hyphen character
-hyphenator_config_hyphen_description = This character will be used as the hyphen character. Defaults to <code>&shy;</code>.
-hyphenator_config_hyphen_note = Note: Leaving this field empty uses the invisible soft hyphen automatically. The values <code>&amp;shy;</code>, <code>&amp;#173;</code> and <code>&amp;#xAD;</code> are normalized automatically.
+hyphenator_config_hyphen = Hyphen character (optional)
+hyphenator_config_hyphen_description = Optional override for the hyphen character. Leaving it empty uses the default soft hyphen <code>&shy;</code>.
+hyphenator_config_hyphen_note = Note: This field only overrides the default. You can use a visible character such as <code>-</code>; the values <code>&amp;shy;</code>, <code>&amp;#173;</code> and <code>&amp;#xAD;</code> are normalized automatically to the real soft hyphen.
 hyphenator_config_hyphen_placeholder = e.g. - or &shy;
-hyphenator_config_hyphen_help = Leave the field empty for the default soft hyphen. If you prefer a visible value while editing, you can also enter <code>&amp;shy;</code>, <code>&amp;#173;</code>, <code>&amp;#xAD;</code> or a visible character such as <code>-</code>.
+hyphenator_config_hyphen_help = By default the addon uses the UTF-8 soft hyphen internally. The `Hyphen character` field remains configurable and only overrides that default when you enter a value here.
 hyphenator_config_leftMin = Min. left
 hyphenator_config_leftMin_description = How many characters will be left unhyphenated to the left of the word. This has to be an integer value and defaults to <code>2</code>.
 hyphenator_config_rightMin = Min. right

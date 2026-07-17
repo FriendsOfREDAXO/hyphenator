@@ -11,11 +11,11 @@ hyphenator_demo_preview_markup = Markup-Ausgabe (technisch)
 hyphenator_demo_hint = Tipp: Ausschlüsse über Tags, Klassen oder freie CSS-Selektoren in der Konfiguration setzen und die Demo erneut laden.
 
 hyphenator_config = Konfiguration
-hyphenator_config_hyphen = Trenn-Symbol
-hyphenator_config_hyphen_description = Dieses Zeichen wird als Trennzeichen eingefügt. Standard ist <code>&shy;</code>.
-hyphenator_config_hyphen_note = Hinweis: Ein leeres Feld verwendet automatisch das unsichtbare Soft-Hyphen. Die Eingaben <code>&amp;shy;</code>, <code>&amp;#173;</code> und <code>&amp;#xAD;</code> werden automatisch korrekt umgewandelt.
+hyphenator_config_hyphen = Trenn-Symbol (optional)
+hyphenator_config_hyphen_description = Optionales Override für das Trennzeichen. Leer verwendet das Standard-Soft-Hyphen <code>&shy;</code>.
+hyphenator_config_hyphen_note = Hinweis: Das Feld ist nur eine Überschreibung des Standards. Du kannst ein sichtbares Zeichen wie <code>-</code> verwenden; die Eingaben <code>&amp;shy;</code>, <code>&amp;#173;</code> und <code>&amp;#xAD;</code> werden automatisch korrekt in das echte Soft-Hyphen umgewandelt.
 hyphenator_config_hyphen_placeholder = z. B. - oder &shy;
-hyphenator_config_hyphen_help = Leer lassen für das Standard-Soft-Hyphen. Wenn du lieber sichtbar arbeiten willst, kannst du im Feld auch <code>&amp;shy;</code>, <code>&amp;#173;</code>, <code>&amp;#xAD;</code> oder ein sichtbares Zeichen wie <code>-</code> eintragen.
+hyphenator_config_hyphen_help = Standardmäßig nutzt das Addon intern das UTF-8-Soft-Hyphen. Das Feld `Trenn-Symbol` bleibt trotzdem bewusst konfigurierbar und überschreibt diesen Standard nur dann, wenn du hier einen Wert einträgst.
 hyphenator_config_leftMin = Min. Links
 hyphenator_config_leftMin_description = Wie viele Zeichen links im Wort ungetrennt bleiben müssen. Standard ist <code>2</code>.
 hyphenator_config_rightMin = Min. Rechts
